@@ -30,20 +30,24 @@ function safeIndex(idx: number) {
 function next() {
   current.value = safeIndex(current.value + 1);
 }
+
 function prev() {
   current.value = safeIndex(current.value - 1);
 }
+
 function goTo(i: number) {
   current.value = safeIndex(i);
 }
 
 // autoplay
 let timer: number | null = null;
+
 function startAutoplay() {
   if (!props.autoplay || total.value <= 1) return;
   stopAutoplay();
   timer = window.setInterval(next, props.interval);
 }
+
 function stopAutoplay() {
   if (timer) {
     clearInterval(timer);
@@ -70,9 +74,9 @@ const isOpen = ref(false);
 </script>
 
 <template>
-  <RepairPricePopup :isOpen="isOpen" @close="isOpen = false"></RepairPricePopup>
+  <RepairPricePopup :isOpen="isOpen" @close="isOpen = false" />
 
-  <diм class="slider" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+  <div class="slider" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
     <div
       class="slides"
       :style="{ transform: `translateX(-${current * 100}%)` }"
@@ -88,9 +92,9 @@ const isOpen = ref(false);
           <h2 class="slide__title">{{ s.title }}</h2>
           <p class="slide__desc">{{ s.description }}</p>
           <div class="slide__content__price_link">
-            <a href="#price" class="slide__link" @click="isOpen = true"
-              >Узнать стоимость</a
-            >
+            <a href="#price" class="slide__link" @click="isOpen = true">
+              Узнать стоимость
+            </a>
             <svg
               viewBox="0 0 24 24"
               width="20"
@@ -137,7 +141,7 @@ const isOpen = ref(false);
         <polyline points="9 18 15 12 9 6" />
       </svg>
     </a>
-  </diм>
+  </div>
 </template>
 
 <style scoped>
@@ -155,12 +159,12 @@ const isOpen = ref(false);
 
 .slide {
   flex: 0 0 100%;
-  min-height: 380px;
-  background: linear-gradient(135deg, #999 0%, #fff 100%);
+  min-height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 40px 20px;
+  background: linear-gradient(135deg, #999 0%, #fff 100%);
 }
 
 .slide__content {
@@ -173,6 +177,7 @@ const isOpen = ref(false);
   margin: 0 0 12px;
   font-size: 32px;
 }
+
 .slide__desc {
   margin: 0 0 20px;
   font-size: 18px;
@@ -186,6 +191,7 @@ const isOpen = ref(false);
   color: #ffffff;
   transition: all 0.3s ease;
 }
+
 .slide__link:hover {
   text-decoration: underline;
 }
@@ -205,18 +211,38 @@ const isOpen = ref(false);
   text-decoration: none;
   transition: background 0.25s ease;
 }
+
 .nav:hover {
   background: rgba(0, 0, 0, 0.3);
 }
+
 .nav--prev {
   left: 12px;
 }
+
 .nav--next {
   right: 12px;
 }
+
 .slide__content__price_link {
   display: flex;
   align-items: center;
   margin-top: 50px;
+}
+
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+  .slider {
+    border-radius: 0;
+  }
+  .slide__content {
+    padding: 0 20px;
+  }
+  .slide__title {
+    font-size: 24px;
+  }
+  .slide__desc {
+    font-size: 16px;
+  }
 }
 </style>

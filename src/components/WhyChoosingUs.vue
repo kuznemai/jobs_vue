@@ -28,8 +28,10 @@
           />
         </div>
       </div>
+    </div>
 
-      <!-- Описание опыта -->
+    <!-- Опыт (вынесен в отдельную секцию для фона) -->
+    <div class="why-us__experience-section">
       <div class="why-us__experience">
         <h2 class="why-us__subtitle">Наш опыт –– ваша уверенность</h2>
         <div class="why-us__experience-items">
@@ -71,7 +73,6 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  padding: 0 3rem;
 }
 
 /* Введение */
@@ -95,7 +96,6 @@
 /* Детали */
 .why-us__details {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   gap: 2rem;
 }
@@ -117,10 +117,17 @@
 }
 
 /* Опыт */
+.why-us__experience-section {
+  width: 100%;
+  background-color: #fff; /* по умолчанию белый */
+}
 .why-us__experience {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .why-us__subtitle {
   font-size: 3rem;
@@ -141,5 +148,49 @@
   font-size: 1rem;
   font-weight: 300;
   margin-top: 0.5rem;
+}
+
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+  .why-us {
+    padding-bottom: 0;
+  }
+  .why-us__content {
+    padding: 1rem;
+  }
+  .why-us__title,
+  .why-us__subtitle {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .why-us__details {
+    flex-direction: column-reverse;
+    padding: 1rem 0;
+  }
+
+  .why-us__experience-section {
+    width: 100vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    background-color: #f5f5f5; /* мобильный фон */
+  }
+  .why-us__experience-item {
+    margin: 0 auto;
+    max-width: 80%;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+  .why-us__experience {
+    padding: 1.5rem;
+  }
+  .why-us__experience-items {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .why-us__subtitle {
+    margin: 0 auto;
+  }
 }
 </style>

@@ -35,4 +35,10 @@ body {
   margin: 0 auto;
   padding-top: 15px;
 }
+@media (min-width: 1270px) {
+  .container {
+    max-width: 1270px; /* ограничиваем */
+    padding-inline: 40px; /* паддинги вокруг */
+  }
+}
 </style>

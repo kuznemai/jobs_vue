@@ -89,10 +89,7 @@ import Social from "@/components/Social.vue";
 /* Адаптив */
 @media (max-width: 768px) {
   .footer__container {
-    grid-template-columns: 1fr;
-  }
-  .footer__map {
-    min-height: 220px;
+    flex-direction: column-reverse;
   }
 }
 </style>

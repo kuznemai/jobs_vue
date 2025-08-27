@@ -26,4 +26,9 @@ defineProps<{
   width: 100%;
   height: auto;
 }
+@media (max-width: 768px) {
+  .slider__element {
+    flex: 0 0 70%;
+  }
+}
 </style>
