@@ -5,14 +5,16 @@ import Slider from "@/components/Slider.vue";
 
 const slides = [
   {
+    id: "1",
     title: "Текст рекламы 1",
     description: "Описание 1",
-    image: "/images/slide-1.jpg",
+    image: "/images/slide-1.png",
   },
   {
+    id: "2",
     title: "Текст рекламы 2",
     description: "Описание 2",
-    image: "/images/slide-2.jpg",
+    image: "/images/slide-1.png",
   },
 ];
 </script>
@@ -29,7 +31,7 @@ const slides = [
 
     <!-- Слайдер -->
     <div class="header__slider">
-      <Slider :slides="slides" autoplay :interval="4000" />
+      <Slider :slides="slides" />
     </div>
   </header>
 </template>
