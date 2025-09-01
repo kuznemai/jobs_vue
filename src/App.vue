@@ -13,6 +13,9 @@ import Content from "@/components/Content.vue";
 </template>
 
 <style>
+* {
+  outline: 1px solid red;
+}
 body {
   margin: 0;
   font-family:

@@ -2,19 +2,20 @@
 import HeaderMeta from "@/components/HeaderMeta.vue";
 import Navbar from "@/components/Navbar.vue";
 import Slider from "@/components/Slider.vue";
+import slide1 from "../assets/images/slide-1.jpg";
 
 const slides = [
   {
     id: "1",
     title: "Текст рекламы 1",
     description: "Описание 1",
-    image: "/images/slide-1.png",
+    image: slide1,
   },
   {
     id: "2",
     title: "Текст рекламы 2",
     description: "Описание 2",
-    image: "/images/slide-1.png",
+    image: slide1,
   },
 ];
 </script>

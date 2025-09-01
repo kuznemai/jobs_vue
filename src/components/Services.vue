@@ -136,6 +136,7 @@ import { Autoplay } from "swiper/modules";
 .reviews__container {
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
   background: #f5f5f5;
 }
 .reviews__slider {

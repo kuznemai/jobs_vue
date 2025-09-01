@@ -82,7 +82,8 @@ import Social from "@/components/Social.vue";
 }
 
 .footer__map {
-  min-height: 260px;
+
+  max-width: 100%;
   overflow: hidden;
 }
 

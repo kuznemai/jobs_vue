@@ -160,7 +160,7 @@
   }
   .why-us__title,
   .why-us__subtitle {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 500;
   }
 
