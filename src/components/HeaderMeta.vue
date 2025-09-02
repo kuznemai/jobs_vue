@@ -105,7 +105,6 @@ const props = defineProps({
 
 .header__info {
   font-size: 14px;
-  opacity: 0.6;
 }
 
 /* --- Мобильная версия --- */

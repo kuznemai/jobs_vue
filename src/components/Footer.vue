@@ -65,7 +65,6 @@ import Social from "@/components/Social.vue";
   font-size: 14px;
   font-weight: 300;
   margin: 0;
-  opacity: 70%;
 }
 .footer__text {
   font-size: 16px;
