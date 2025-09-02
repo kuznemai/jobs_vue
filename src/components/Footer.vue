@@ -81,7 +81,6 @@ import Social from "@/components/Social.vue";
 }
 
 .footer__map {
-
   max-width: 100%;
   overflow: hidden;
 }

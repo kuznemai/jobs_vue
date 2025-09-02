@@ -122,6 +122,5 @@ const emit = defineEmits(["toggle"])
 }
 .header__info {
   font-size: 14px;
-  opacity: 0.6;
 }
 </style>
