@@ -13,8 +13,8 @@ import Content from "@/components/Content.vue";
 </template>
 
 <style>
-
 body {
+  background-color: #fff;
   margin: 0;
   font-family:
     "SF Pro Display",
