@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import ButonSlot from "@/components/ButonSlot.vue";
+import BurgerMenu from "@/components/BurgerMenu.vue";
 
 const isOpen = ref(false);
 const toggleMenu = () => {
@@ -10,12 +11,8 @@ const toggleMenu = () => {
 
 <template>
   <div class="menu__wrapper">
-    <!-- Кнопка бургер -->
-    <button class="burger" @click="toggleMenu" aria-label="Меню">
-      <span :class="{ open: isOpen }"></span>
-      <span :class="{ open: isOpen }"></span>
-      <span :class="{ open: isOpen }"></span>
-    </button>
+    <!-- Бургер (появляется только на мобилках) -->
+    <BurgerMenu class="burger" :isOpen="isOpen" @toggle="toggleMenu" />
 
     <!-- Навигация -->
     <nav class="menu" :class="{ open: isOpen }">
@@ -23,13 +20,12 @@ const toggleMenu = () => {
         <li class="menu__item"><a href="#" class="menu__link">Главная</a></li>
         <li class="menu__item"><a href="#" class="menu__link">О нас</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Услуги</a></li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">Обратная связь</a>
-        </li>
+        <li class="menu__item"><a href="#" class="menu__link">Обратная связь</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Отзывы</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
       </ul>
     </nav>
+
     <ButonSlot class="price_button">Узнать стоимость</ButonSlot>
   </div>
 </template>
@@ -42,39 +38,11 @@ const toggleMenu = () => {
   width: 100%;
 }
 
-/* Бургер */
+/* ===== Десктоп ===== */
 .burger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
+  display: none; /* скрыт на больших экранах */
 }
 
-.burger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #1c1c1c;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.burger span.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.burger span.open:nth-child(2) {
-  opacity: 0;
-}
-.burger span.open:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Меню */
 .menu {
   display: flex;
   align-items: center;
@@ -95,52 +63,58 @@ const toggleMenu = () => {
 
 .menu__link {
   text-decoration: none;
-  color: #1c1c1c;
+  color: #313131;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .menu__link:hover {
-  color: #000000;
+  color: #000;
 }
 
-/* --- Мобильная версия --- */
+/* ===== Мобильная версия ===== */
 @media (max-width: 768px) {
-  .menu__wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100%;
-  }
   .burger {
-    display: flex;
+    display: block; /* показываем бургер */
+  }
+
+  .menu__wrapper {
+    display: block;
+    width: 100%;
   }
 
   .menu {
     position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
+    top: 15%; /* ниже шапки */
+    left: -100%;
+    height: calc(100vh - 70px);
     width: 100%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* пункты по левому краю */
     background: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease;
+    padding: 20px;
+    transition: left 0.3s ease;
     z-index: 1000;
   }
 
   .menu.open {
-    right: 0;
+    left: 0;
   }
 
   .menu__list {
     flex-direction: column;
     gap: 25px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    width: 100%;
   }
 
-  .menu__item {
-    padding: 0;
+  .menu__link {
+    width: 100%;
+    display: block;
+    font-weight: 500;
   }
+
   .price_button {
     display: none;
   }

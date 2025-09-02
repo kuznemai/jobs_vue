@@ -110,7 +110,16 @@ const props = defineProps({
 
 /* --- Мобильная версия --- */
 @media (max-width: 768px) {
+  .header__meta_wrapper {
+    flex-direction: row-reverse;
+  }
   .header__meta_wrapper__right {
+    display: none;
+  }
+  .header__meta_wrapper__left {
+    margin-right: 10px;
+  }
+  .header__logo {
     display: none;
   }
 }

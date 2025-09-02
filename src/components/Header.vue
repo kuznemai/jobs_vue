@@ -3,6 +3,7 @@ import HeaderMeta from "@/components/HeaderMeta.vue";
 import Navbar from "@/components/Navbar.vue";
 import Slider from "@/components/Slider.vue";
 import slide1 from "../assets/images/slide-1.jpg";
+import BurgerMenu from "@/components/BurgerMenu.vue";
 
 const slides = [
   {
@@ -22,8 +23,7 @@ const slides = [
 
 <template>
   <header class="header">
-    <!-- Верхняя панель с адресом и телефоном -->
-    <HeaderMeta />
+   <HeaderMeta />
 
     <!-- Логотип + меню -->
     <div class="header__bottom">

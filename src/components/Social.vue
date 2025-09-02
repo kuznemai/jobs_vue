@@ -18,7 +18,7 @@
         class="social__link social__link--ig"
         ><img src="../assets/images/instagram.svg" alt="Instagram" />
       </a>
-      <a href="#" class="social__link social__link--vk"
+      <a href="https://vk.com/jobsstorenn" class="social__link social__link--vk"
         ><img src="../assets/images/vkontakte.svg" alt="Vkontakte" />
       </a>
     </div>
