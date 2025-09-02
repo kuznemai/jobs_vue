@@ -13,7 +13,10 @@ import OnePicBlock from "@/components/OnePicBlock.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import RepairPricePopup from "@/components/RepairPricePopup.vue";
+import {ref} from "vue";
 
+const isOpenModal = ref(false)
 </script>
 
 <template>
@@ -55,7 +58,8 @@ import { Autoplay } from "swiper/modules";
         </SwiperSlide>
       </Swiper>
 
-      <ButonSlot>Узнать стоимость</ButonSlot>
+      <ButonSlot @click="isOpenModal = true">Узнать стоимость</ButonSlot>
+      <RepairPricePopup :isOpenModal="isOpenModal" @close="isOpenModal = false"></RepairPricePopup>
     </div>
 
     <OnePicBlock />

@@ -1,12 +1,12 @@
 <script setup>
 const props = defineProps({
-  isOpen: Boolean,
+  isOpenModal: Boolean,
 });
 const emit = defineEmits(["close", "submit"]);
 </script>
 
 <template>
-  <div v-if="props.isOpen" class="modal-overlay" @click.self="close">
+  <div v-if="props.isOpenModal" class="modal-overlay" @click.self="close">
     <div class="modal">
       <button class="close-btn" @click="close">✕</button>
 
@@ -49,7 +49,7 @@ const emit = defineEmits(["close", "submit"]);
 export default {
   name: "ModalForm",
   props: {
-    isOpen: { type: Boolean, default: false },
+    isOpenModal: { type: Boolean, default: false },
   },
   emits: ["close", "submit"],
   data() {
@@ -178,5 +178,23 @@ textarea {
 
 .submit-btn:hover {
   background: #f5f5f5;
+}
+
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+  .modal-overlay {
+    align-items: flex-start; /* прижимаем к верху */
+    padding-top: 40px;       /* отступ сверху */
+    overflow-y: auto;        /* если модалка высокая, можно скроллить */
+  }
+
+  .modal {
+    width: 90%;              /* ширина меньше экрана */
+    max-width: 90%;
+    padding: 1.5rem;
+    border-radius: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }
 </style>

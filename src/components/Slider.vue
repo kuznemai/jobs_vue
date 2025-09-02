@@ -7,8 +7,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ArrowLeft from "../assets/images/arrow-left.svg";
 import ArrowRight from "../assets/images/arrow-right.svg";
+import RepairPricePopup from "@/components/RepairPricePopup.vue";
 
-const isOpen = ref(false)
+const isOpenModal = ref(false)
 
 const props = defineProps({
   slides: Array
@@ -35,7 +36,7 @@ const props = defineProps({
           <p class="slide__desc">{{ slide.description }}</p>
 
           <div class="slide__content__price_link">
-            <a href="#price" class="slide__link" @click.prevent="isOpen = true">
+            <a href="#price" class="slide__link" @click.prevent="isOpenModal = true">
               Узнать стоимость
               <img src="@/assets/images/arrow-right.svg" alt="стрелка" class="slide__link__arrow" />
             </a>
@@ -52,6 +53,7 @@ const props = defineProps({
       <img :src="ArrowRight" alt="next" />
     </button>
   </div>
+  <RepairPricePopup :is-open-modal="isOpenModal" @close="isOpenModal = false"></RepairPricePopup>
 </template>
 
 <style scoped>

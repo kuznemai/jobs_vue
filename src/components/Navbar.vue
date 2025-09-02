@@ -1,12 +1,21 @@
 <script setup>
-import { ref } from "vue";
+import {ref, watch} from "vue";
 import ButonSlot from "@/components/ButonSlot.vue";
 import BurgerMenu from "@/components/BurgerMenu.vue";
+import RepairPricePopup from "@/components/RepairPricePopup.vue";
 
+const isOpenModal = ref(false);
 const isOpen = ref(false);
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
+watch(isOpen, (newVal) => {
+  if (newVal) {
+    document.body.style.overflow = "hidden"; // запрет прокрутки
+  } else {
+    document.body.style.overflow = ""; // возвращаем прокрутку
+  }
+});
 </script>
 
 <template>
@@ -26,7 +35,8 @@ const toggleMenu = () => {
       </ul>
     </nav>
 
-    <ButonSlot class="price_button">Узнать стоимость</ButonSlot>
+    <ButonSlot class="price_button" @click="isOpenModal = true">Узнать стоимость</ButonSlot>
+    <RepairPricePopup :is-open-modal = "isOpenModal" @close = "isOpenModal = false"></RepairPricePopup>
   </div>
 </template>
 
@@ -85,12 +95,12 @@ const toggleMenu = () => {
 
   .menu {
     position: fixed;
-    top: 15%; /* ниже шапки */
+    top: 100px; /* прилипает ровно к нижней границе хедера */
     left: -100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 70px); /* занимает оставшуюся высоту */
     width: 100%;
     flex-direction: column;
-    align-items: flex-start; /* пункты по левому краю */
+    align-items: flex-start;
     background: #fff;
     padding: 20px;
     transition: left 0.3s ease;
