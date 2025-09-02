@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "swiper": "^11.2.10",
@@ -18,8 +20,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
     "eslint": "^9.33.0",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
-    "vite": "^7.0.6",
+    "vite": "^7.1.4",
     "vite-plugin-vue-devtools": "^8.0.0"
-  }
+  },
+  "homepage": "https://kuznemai.github.io/jobs_vue"
 }

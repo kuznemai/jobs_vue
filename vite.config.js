@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/jobs_vue/',
   plugins: [
     vue(),
     vueDevTools(),
@@ -16,3 +17,6 @@ export default defineConfig({
     },
   },
 })
+
+
+
