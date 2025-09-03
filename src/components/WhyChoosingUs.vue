@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <section class="why-us">
+  <section class="why-us" id="whyus">
     <div class="why-us__content">
       <!-- Введение -->
       <div class="why-us__intro">

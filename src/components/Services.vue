@@ -20,7 +20,7 @@ const isOpenModal = ref(false)
 </script>
 
 <template>
-  <section class="services">
+  <section class="services" id="services">
     <div class="services__options">
       <h2 class="services__title">Услуги</h2>
 
@@ -74,6 +74,7 @@ const isOpenModal = ref(false)
             :breakpoints="{ 768: { slidesPerView: 3, spaceBetween: 20 } }"
             :autoplay="{ delay: 3000, disableOnInteraction: false }"
             class="reviews__slider"
+            id="reviews"
         >
           <SwiperSlide>
             <ServicesSliderElement :src="review1" />

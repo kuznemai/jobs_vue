@@ -3,7 +3,7 @@ import Social from "@/components/Social.vue";
 </script>
 
 <template>
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="footer__container">
       <div class="footer__info">
         <h3 class="footer__title">Контакты</h3>

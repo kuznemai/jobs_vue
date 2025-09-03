@@ -16,6 +16,18 @@ watch(isOpen, (newVal) => {
     document.body.style.overflow = ""; // возвращаем прокрутку
   }
 });
+
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    isOpen.value = false;
+  }
+};
 </script>
 
 <template>
@@ -27,11 +39,11 @@ watch(isOpen, (newVal) => {
     <nav class="menu" :class="{ open: isOpen }">
       <ul class="menu__list">
         <li class="menu__item"><a href="#" class="menu__link">Главная</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">О нас</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Услуги</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Обратная связь</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Отзывы</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
+        <li class="menu__item" @click="scrollToSection('whyus')"><a href="#" class="menu__link">О нас</a></li>
+        <li class="menu__item" @click="scrollToSection('services')"><a href="#" class="menu__link">Услуги</a></li>
+        <li class="menu__item" @click="isOpenModal = true"><a href="#" class="menu__link">Обратная связь</a></li>
+        <li class="menu__item" @click="scrollToSection('reviews')"><a href="#" class="menu__link">Отзывы</a></li>
+        <li class="menu__item" @click="scrollToSection('footer')"><a href="#" class="menu__link">Контакты</a></li>
       </ul>
     </nav>
 
