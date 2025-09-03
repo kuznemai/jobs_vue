@@ -28,7 +28,7 @@
 <style scoped>
 .social {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 5px;
 }
 .social__link {
