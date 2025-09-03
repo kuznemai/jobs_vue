@@ -187,6 +187,7 @@ const isOpenModal = ref(false)
 @media (max-width: 768px) {
   .services {
     gap: 3rem;
+    align-items: stretch;
   }
 
   .services__options {
