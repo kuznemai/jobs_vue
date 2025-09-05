@@ -34,12 +34,12 @@ body {
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 15px;
+  padding: 15px;
 }
 @media (min-width: 1270px) {
   .container {
-    max-width: 1270px; /* ограничиваем */
-    padding-inline: 40px; /* паддинги вокруг */
+    max-width: 1270px;
+    padding-inline: 40px;
   }
 }
 </style>

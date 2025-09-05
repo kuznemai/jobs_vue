@@ -10,9 +10,9 @@ import review3 from "@/assets/images/review3.png";
 import OnePicBlock from "@/components/OnePicBlock.vue";
 
 /* Swiper */
-import { Swiper, SwiperSlide } from "swiper/vue";
+import {Swiper, SwiperSlide} from "swiper/vue";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+import {Autoplay} from "swiper/modules";
 import RepairPricePopup from "@/components/RepairPricePopup.vue";
 import {ref} from "vue";
 
@@ -62,48 +62,113 @@ const isOpenModal = ref(false)
       <RepairPricePopup :isOpenModal="isOpenModal" @close="isOpenModal = false"></RepairPricePopup>
     </div>
 
-    <OnePicBlock />
+    <OnePicBlock/>
 
     <!-- Reviews -->
     <div class="reviews">
       <div class="reviews__container">
         <Swiper
             :modules="[Autoplay]"
-            :space-between="10"
+            :space-between="2"
             :slides-per-view="1.2"
-            :breakpoints="{ 768: { slidesPerView: 3, spaceBetween: 20 } }"
+            :breakpoints="{ 768: { slidesPerView: 3, spaceBetween: 5 } }"
             :autoplay="{ delay: 3000, disableOnInteraction: false }"
             class="reviews__slider"
             id="reviews"
         >
           <SwiperSlide>
-            <ServicesSliderElement :src="review1" />
+            <ServicesSliderElement :src="review1">
+              <template #overlay>
+                <img src="@/assets/images/reviewv1.png" alt="icon" class="overlay-icon"/>
+                <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/"
+                   target="_blank"
+                   class="read-more">
+                  Читать целиком
+                </a>
+              </template>
+            </ServicesSliderElement>
           </SwiperSlide>
           <SwiperSlide>
-            <ServicesSliderElement :src="review2" />
+            <ServicesSliderElement :src="review2">
+              <template #overlay>
+                <img src="@/assets/images/reviewv2.png" alt="icon" class="overlay-icon"/>
+                <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/"
+                   target="_blank"
+                   class="read-more">
+                  Читать целиком
+                </a>
+              </template>
+            </ServicesSliderElement>
           </SwiperSlide>
           <SwiperSlide>
-            <ServicesSliderElement :src="review3" />
+            <ServicesSliderElement :src="review3">
+              <template #overlay>
+                  <img src="@/assets/images/reviewv3.png" alt="icon" class="overlay-icon"/>
+                  <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/"
+                     target="_blank"
+                     class="read-more">
+                    Читать целиком
+                  </a>
+              </template>
+            </ServicesSliderElement>
           </SwiperSlide>
           <SwiperSlide>
-            <ServicesSliderElement :src="review1" />
+            <ServicesSliderElement :src="review1">
+              <template #overlay>
+                <img src="@/assets/images/reviewv1.png" alt="icon" class="overlay-icon"/>
+                <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/"
+                   target="_blank"
+                   class="read-more">
+                  Читать целиком
+                </a>
+              </template>
+            </ServicesSliderElement>
           </SwiperSlide>
           <SwiperSlide>
-            <ServicesSliderElement :src="review1" />
+            <ServicesSliderElement :src="review2">
+              <template #overlay>
+                <img src="@/assets/images/reviewv2.png" alt="icon" class="overlay-icon"/>
+                <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/"
+                   target="_blank"
+                   class="read-more">
+                  Читать целиком
+                </a>
+              </template>
+            </ServicesSliderElement>
           </SwiperSlide>
         </Swiper>
-        <ButonSlot class="services_review__btn">Узнать больше</ButonSlot>
+        <ButonSlot class="services_review__btn"><a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/" class="read_more_reviews">Узнать больше</a> </ButonSlot>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
+
+.image-wrapper .overlay-icon {
+  position: absolute;
+  top: 20%;
+  left: 15px;
+  z-index: 5;
+  width: 90%;
+  padding: 10px;
+}
+.read-more {
+  position: relative;
+  bottom: 95px;
+  right: 85px;
+  text-decoration: none;
+  color: #355CED;
+  font-size: 0.8rem;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
 .services {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;   /* вместо flex-start */
-  gap: 4rem;              /* уменьшил, было 6rem */
+  align-items: flex-start;
+  gap: 4rem;
   width: 100%;
 }
 
@@ -111,30 +176,25 @@ const isOpenModal = ref(false)
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-  padding: 3rem;      /* было 50px, сделаем адаптивнее */
+  padding: 3rem;
   gap: 2rem;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1200px;       /* ограничим ширину внутри */
-  margin: 0 auto;          /* центрируем */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .services__slider {
   width: 100%;
-  max-width: 100%;         /* не выходит за экран */
-  height: auto;            /* чтобы Swiper не задавал фиксированную высоту */
-}
-
-.services__slider .swiper-slide {
-  height: auto;
+  max-width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .services__slider .swiper-slide > * {
   flex: 1;
-  max-width: 350px;   /* задаём максимальную ширину карточки */
-  min-height: 250px;  /* увеличиваем высоту */
+  max-width: 350px;
+  min-height: 250px;
 
 }
 
@@ -143,20 +203,22 @@ const isOpenModal = ref(false)
   max-width: 1200px;
   margin: 0 auto;
   background: #f5f5f5;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+
 }
+
 .reviews__slider {
   width: 100%;
   height: auto;
   overflow: hidden;
 }
-.reviews__slider .swiper-wrapper {
-  width: 100% !important;
-}
+
 .reviews__slider .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* пусть берёт высоту от содержимого */
+  height: auto;
 }
 
 .reviews__slider .swiper-slide > * {
@@ -165,24 +227,32 @@ const isOpenModal = ref(false)
   justify-content: flex-start;
   align-items: center;
 
-
-  max-width: 300px;   /* фиксируем ширину карточки */
-  min-height: 220px;  /* 🚀 минимальная высота, чтобы карточка не схлопывалась */
+  width: 100%;
+  max-width: 360px;
+  min-height: 220px;
   box-sizing: border-box;
-  flex: none; /* убрали растягивание */
+  flex: none;
 }
-
+.services_review__btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  text-align: center;
+}
 
 .services__title {
   font-size: 2rem;
   color: #000;
   margin: 0;
 }
+
 .slider_element_description {
   color: #000000;
   font-size: 1.2rem;
 }
-
+.read_more_reviews{
+  text-decoration: none;
+  color: #000000;
+}
 
 /* --- Мобильная версия --- */
 @media (max-width: 768px) {
@@ -201,22 +271,17 @@ const isOpenModal = ref(false)
     font-size: 1.8rem;
   }
 
-  .reviews {
-    padding: 2rem 1rem;
-  }
-
   /* Фон на всю ширину */
   .reviews {
-    width: 100vw; /* растягиваем на весь экран */
-    padding: 3rem 0;
+    width: 100vw;
+    padding: 1.5rem 0;
     overflow: hidden;
   }
 
-  /* Контейнер внутри, чтобы центрировать слайды */
   .reviews__container {
     max-width: 1200px;
-    margin: 0 auto; /* центрируем слайды */
-    padding: 3rem 0;
+    margin: 0 auto;
+
     box-sizing: border-box;
   }
 
@@ -238,12 +303,17 @@ const isOpenModal = ref(false)
     flex: none;
   }
 
-  /* Уменьшаем расстояние между слайдами */
   .reviews__slider.swiper-container {
-    --swiper-space-between: 10px; /* кастомная переменная для gap */
+    --swiper-space-between: 10px;
   }
+
   .services_review__btn {
     margin: 1rem;
+  }
+
+  .read-more {
+    bottom: 80px;
+    right: 53px;
   }
 }
 </style>
