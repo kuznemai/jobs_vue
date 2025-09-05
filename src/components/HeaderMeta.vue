@@ -83,6 +83,7 @@ const props = defineProps({
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
+  padding: 15px 15px 0 15px;
 }
 
 .header__meta_wrapper__left,

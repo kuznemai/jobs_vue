@@ -53,8 +53,8 @@ const slides = [
 /* Слайдер */
 .header__slider {
   width: 100%;
-  max-width: 1200px; /* ограничиваем ширину */
-  margin: 20px auto 0; /* центрируем слайдер */
+  max-width: 1200px;
+  margin: 20px auto 0;
 }
 
 /* --- Адаптив --- */
