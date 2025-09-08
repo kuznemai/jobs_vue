@@ -112,6 +112,8 @@ const props = defineProps({
 @media (max-width: 768px) {
   .header__meta_wrapper {
     flex-direction: row-reverse;
+    padding: 15px;
+    color: #3C3C43;
   }
   .header__meta_wrapper__right {
     display: none;

@@ -13,10 +13,18 @@
   border-radius: 20px;
   text-decoration: none;
   color: #111;
+  transition: all 0.3s ease;
 }
 
 .header__button:hover {
   background: #111;
   color: #fff;
+}
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+  .header__button:hover {
+    background-color: inherit;
+    color: #111;
+  }
 }
 </style>

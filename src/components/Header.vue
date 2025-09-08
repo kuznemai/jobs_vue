@@ -2,7 +2,8 @@
 import HeaderMeta from "@/components/HeaderMeta.vue";
 import Navbar from "@/components/Navbar.vue";
 import Slider from "@/components/Slider.vue";
-import slide1 from "../assets/images/slide-1.jpg";
+import slide1 from "../assets/images/preorder1.jpg";
+import slide2 from "../assets/images/preorder2.jpg";
 import BurgerMenu from "@/components/BurgerMenu.vue";
 
 const slides = [
@@ -16,13 +17,13 @@ const slides = [
     id: "2",
     title: "Текст рекламы 2",
     description: "Описание 2",
-    image: slide1,
+    image: slide2,
   },
 ];
 </script>
 
-<template>
-  <header class="header">
+<template >
+  <header id="main" class="header">
    <HeaderMeta />
 
     <!-- Логотип + меню -->

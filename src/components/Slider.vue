@@ -32,8 +32,8 @@ const props = defineProps({
             class="slide__content"
             :style="{ backgroundImage: `url(${slide.image})` }"
         >
-          <h2 class="slide__title">{{ slide.title }}</h2>
-          <p class="slide__desc">{{ slide.description }}</p>
+<!--          <h2 class="slide__title">{{ slide.title }}</h2>-->
+<!--          <p class="slide__desc">{{ slide.description }}</p>-->
 
           <div class="slide__content__price_link">
             <a href="#price" class="slide__link" @click.prevent="isOpenModal = true">

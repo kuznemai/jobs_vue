@@ -38,12 +38,12 @@ const scrollToSection = (id) => {
     <!-- Навигация -->
     <nav class="menu" :class="{ open: isOpen }">
       <ul class="menu__list">
-        <li class="menu__item"><a href="#" class="menu__link">Главная</a></li>
-        <li class="menu__item" @click="scrollToSection('whyus')"><a href="#" class="menu__link">О нас</a></li>
-        <li class="menu__item" @click="scrollToSection('services')"><a href="#" class="menu__link">Услуги</a></li>
-        <li class="menu__item" @click="isOpenModal = true"><a href="#" class="menu__link">Обратная связь</a></li>
-        <li class="menu__item" @click="scrollToSection('reviews')"><a href="#" class="menu__link">Отзывы</a></li>
-        <li class="menu__item" @click="scrollToSection('footer')"><a href="#" class="menu__link">Контакты</a></li>
+        <li class="menu__item"  @click="scrollToSection('main')"><a href="#main" class="menu__link">Главная</a></li>
+        <li class="menu__item" @click="scrollToSection('whyus')"><a href="#whyus" class="menu__link">О нас</a></li>
+        <li class="menu__item" @click="scrollToSection('services')"><a href="#services" class="menu__link">Услуги</a></li>
+        <li class="menu__item" @click="isOpenModal = true"><a href="#contactus" class="menu__link">Обратная связь</a></li>
+        <li class="menu__item" @click="scrollToSection('reviews')"><a href="#reviews" class="menu__link">Отзывы</a></li>
+        <li class="menu__item" @click="scrollToSection('footer')"><a href="#footer" class="menu__link">Контакты</a></li>
       </ul>
     </nav>
 

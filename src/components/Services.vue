@@ -137,7 +137,7 @@ const isOpenModal = ref(false)
             </ServicesSliderElement>
           </SwiperSlide>
         </Swiper>
-        <ButonSlot class="services_review__btn"><a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/" class="read_more_reviews">Узнать больше</a> </ButonSlot>
+        <a href="https://yandex.ru/maps/org/dzhobs_service/116920591134/reviews/" class="read_more_reviews_btn">Узнать больше</a>
       </div>
     </div>
   </section>
@@ -233,11 +233,6 @@ const isOpenModal = ref(false)
   box-sizing: border-box;
   flex: none;
 }
-.services_review__btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  text-align: center;
-}
 
 .services__title {
   font-size: 2rem;
@@ -249,9 +244,17 @@ const isOpenModal = ref(false)
   color: #000000;
   font-size: 1.2rem;
 }
-.read_more_reviews{
+.read_more_reviews_btn{
   text-decoration: none;
-  color: #000000;
+  padding: 8px 16px;
+  border: 2px solid #111;
+  border-radius: 20px;
+  color: #111;
+  transition: all 0.3s ease;
+}
+.read_more_reviews_btn:hover {
+  background: #111;
+  color: #fff;
 }
 
 /* --- Мобильная версия --- */
@@ -307,13 +310,13 @@ const isOpenModal = ref(false)
     --swiper-space-between: 10px;
   }
 
-  .services_review__btn {
-    margin: 1rem;
-  }
-
   .read-more {
     bottom: 80px;
     right: 53px;
+  }
+  .read_more_reviews_btn:hover {
+    background: inherit;
+    color: #111111;
   }
 }
 </style>

@@ -90,5 +90,8 @@ import Social from "@/components/Social.vue";
   .footer__container {
     flex-direction: column-reverse;
   }
+  .footer__title {
+  color: #3C3C43;
+  }
 }
 </style>
