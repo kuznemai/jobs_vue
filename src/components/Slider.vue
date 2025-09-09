@@ -14,18 +14,18 @@ const isOpenModal = ref(false)
 const props = defineProps({
   slides: Array
 })
-const isBeginning = ref(true);
-const isEnd = ref(false);
-
-const onSwiper = (swiper: any) => {
-  isBeginning.value = swiper.isBeginning;
-  isEnd.value = swiper.isEnd;
-
-  swiper.on("slideChange", () => {
-    isBeginning.value = swiper.isBeginning;
-    isEnd.value = swiper.isEnd;
-  });
-};
+// const isBeginning = ref(true);
+// const isEnd = ref(false);
+//
+// const onSwiper = (swiper: any) => {
+//   isBeginning.value = swiper.isBeginning;
+//   isEnd.value = swiper.isEnd;
+//
+//   swiper.on("slideChange", () => {
+//     isBeginning.value = swiper.isBeginning;
+//     isEnd.value = swiper.isEnd;
+//   });
+// };
 
 </script>
 
@@ -59,13 +59,13 @@ const onSwiper = (swiper: any) => {
       </SwiperSlide>
     </Swiper>
 
-    <!-- кастомные кнопки навигации (передаем селекторы Swiper-у выше) -->
-    <button class="slider__nav slider__nav--prev" :class="{ disabled: isBeginning }">
-      <img :src="ArrowLeft" alt="prev" />
-    </button>
-    <button class="slider__nav slider__nav--next" :class="{ disabled: isEnd }">
-      <img :src="ArrowRight" alt="next" />
-    </button>
+<!--    &lt;!&ndash; кастомные кнопки навигации (передаем селекторы Swiper-у выше) &ndash;&gt;-->
+<!--    <button class="slider__nav slider__nav&#45;&#45;prev" :class="{ disabled: isBeginning }">-->
+<!--      <img :src="ArrowLeft" alt="prev" />-->
+<!--    </button>-->
+<!--    <button class="slider__nav slider__nav&#45;&#45;next" :class="{ disabled: isEnd }">-->
+<!--      <img :src="ArrowRight" alt="next" />-->
+<!--    </button>-->
   </div>
   <RepairPricePopup :is-open-modal="isOpenModal" @close="isOpenModal = false"></RepairPricePopup>
 </template>
@@ -192,8 +192,8 @@ const onSwiper = (swiper: any) => {
 @media (max-width: 768px) {
   .slide__content {
     max-width: 100%;
-    height: 70vh;
-    padding: 16px;
+    height: 75vh;
+    padding: 20px;
   }
   .slide__title { font-size: 1.25rem; }
   .slide__desc { font-size: 0.95rem; }

@@ -112,13 +112,13 @@ watch(() => props.isOpenModal, (val) => {
         <form @submit.prevent="submitForm">
           <label>
             Ваше имя
-            <input type="text" v-model.trim="form.name" />
+            <input type="text" v-model.trim="form.name" autocomplete="name" />
           </label>
           <span v-if="errors.name" class="error">{{ errors.name }}</span>
 
           <label>
             Номер телефона
-            <input type="text" v-model.trim="form.phone" placeholder="89XXXXXXXXX" />
+            <input type="text" v-model.trim="form.phone" placeholder="89XXXXXXXXX" autocomplete="tel" />
           </label>
           <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
 
@@ -157,7 +157,9 @@ watch(() => props.isOpenModal, (val) => {
   z-index: 1000;
   padding: 20px;
 }
-
+.modal-overlay_header {
+  color: #1c1c1c;
+}
 .modal {
   background: #fff;
   border-radius: 30px;
@@ -222,6 +224,7 @@ textarea {
   border: 2px solid #000;
   border-radius: 20px;
   background: #fff;
+  color: #000000;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.2s ease;
@@ -276,8 +279,6 @@ textarea {
     max-height: 90vh;
     overflow-y: auto;
   }
-  .modal-overlay_header {
-    color: #1c1c1c;
-  }
+
 }
 </style>
