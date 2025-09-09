@@ -14,6 +14,19 @@ const isOpenModal = ref(false)
 const props = defineProps({
   slides: Array
 })
+const isBeginning = ref(true);
+const isEnd = ref(false);
+
+const onSwiper = (swiper: any) => {
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
+
+  swiper.on("slideChange", () => {
+    isBeginning.value = swiper.isBeginning;
+    isEnd.value = swiper.isEnd;
+  });
+};
+
 </script>
 
 <template>
@@ -26,6 +39,7 @@ const props = defineProps({
         :slides-per-view="1"
         :breakpoints="{ 768: { slidesPerView: 1, spaceBetween: 30 } }"
         class="reviews__slider"
+        @swiper="onSwiper"
     >
       <SwiperSlide v-for="slide in slides" :key="slide.id">
         <div
@@ -46,10 +60,10 @@ const props = defineProps({
     </Swiper>
 
     <!-- кастомные кнопки навигации (передаем селекторы Swiper-у выше) -->
-    <button class="slider__nav slider__nav--prev">
+    <button class="slider__nav slider__nav--prev" :class="{ disabled: isBeginning }">
       <img :src="ArrowLeft" alt="prev" />
     </button>
-    <button class="slider__nav slider__nav--next">
+    <button class="slider__nav slider__nav--next" :class="{ disabled: isEnd }">
       <img :src="ArrowRight" alt="next" />
     </button>
   </div>
@@ -57,7 +71,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
-/* контейнер слайдера */
+
 .slider {
   position: relative;
   width: 100%;
@@ -196,6 +210,10 @@ const props = defineProps({
   .slide__link__arrow {
     width: 12px;
     height: 12px;
+  }
+  .slider__nav.disabled {
+    opacity: 0.4;
+    pointer-events: none;
   }
 
 }

@@ -4,22 +4,40 @@ import Navbar from "@/components/Navbar.vue";
 import Slider from "@/components/Slider.vue";
 import slide1 from "../assets/images/preorder1.jpg";
 import slide2 from "../assets/images/preorder2.jpg";
-import BurgerMenu from "@/components/BurgerMenu.vue";
+import slide1Mobile from "../assets/images/preorder1-mobile.png";
+import slide2Mobile from "../assets/images/preorder2-mobile.png";
+import {onMounted, onUnmounted, ref} from "vue";
 
-const slides = [
-  {
-    id: "1",
-    title: "Текст рекламы 1",
-    description: "Описание 1",
-    image: slide1,
-  },
-  {
-    id: "2",
-    title: "Текст рекламы 2",
-    description: "Описание 2",
-    image: slide2,
-  },
-];
+const isMobile = ref(window.innerWidth <= 768)
+
+const slides = ref([]);
+
+function resizeMobile(){
+  isMobile.value = window.innerWidth <= 768
+
+  slides.value = [
+    {
+      id: "1",
+      title: "Текст рекламы 1",
+      description: "Описание 1",
+      image: isMobile.value ? slide1Mobile : slide1,
+    },
+    {
+      id: "2",
+      title: "Текст рекламы 2",
+      description: "Описание 2",
+      image: isMobile.value ? slide2Mobile : slide2 ,
+    },
+  ]
+}
+
+onMounted(() => {
+  resizeMobile()
+  window.addEventListener("resize", resizeMobile);
+} )
+onUnmounted(() => {
+  window.removeEventListener("resize", resizeMobile);
+});
 </script>
 
 <template >

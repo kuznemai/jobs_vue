@@ -102,7 +102,7 @@ watch(() => props.isOpenModal, (val) => {
     <div class="modal">
       <button class="close-btn" @click="close">✕</button>
 
-      <h2>Узнать стоимость ремонта</h2>
+      <h2 class="modal-overlay_header">Узнать стоимость ремонта</h2>
 
       <div v-if="isLoading" class="spinner-wrapper">
         <div class="spinner"></div>
@@ -275,6 +275,9 @@ textarea {
     border-radius: 20px;
     max-height: 90vh;
     overflow-y: auto;
+  }
+  .modal-overlay_header {
+    color: #1c1c1c;
   }
 }
 </style>
